@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    <!-- Add more input fields if needed -->
+    <input class="input-number" type="number"><br><br>
+    <input class="input-number" type="number"><br><br>
+    <input class="input-number" type="number"><br><br>
+    <input class="input-number" type="number"><br><br>
+    <input class="input-number" type="number"><br><br>
+
+    <button id="button" onclick="calculate()">Add</button>
+
+    <button id="clear" onclick="clearFields()">Clear</button><br><br>
+
+    <input id="res" type="number" readonly>
+
+    <script>
+
+        function calculate() {
+            let inputs = document.getElementsByClassName("input-number");
+            let sum = 0;
+
+            for (let i = 0; i < inputs.length; i++) {
+                sum += parseInt(inputs[i].value) || 0;
+            }
+
+            document.getElementById("res").value = sum;
+        }
+
+        function clearFields() {
+            let inputs = document.getElementsByClassName("input-number");
+
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = '';
+            }
+
+            document.getElementById("res").value = '';
+        }
+
+    </script>
+
+</body>
+</html>
